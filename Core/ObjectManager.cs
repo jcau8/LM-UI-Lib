@@ -45,19 +45,16 @@ namespace LMUI.Core
                 throw;
             }
 
-            if (_loadedPrefab != null)
-            {
-                _logger.LogInfo($"Successfully loaded prefab: {prefabPath}, from bundle: {loadedAssetBundle.name}");
-                return _loadedPrefab;
-            }
-            else if (_loadedPrefab == null)
+            if (_loadedPrefab == null)
             {
                 _logger.LogError($"Failed to load prefab: {prefabPath}, from bundle: {loadedAssetBundle.name}. The prefab is null");
+                // An error occured, return without data
+                _logger.LogError("Error occured, returning null...");
+                return null;
             }
 
-            // An error occured, return without data
-            _logger.LogError("Error occured, returning null");
-            return null;
+            _logger.LogInfo($"Successfully loaded prefab: {prefabPath}, from bundle: {loadedAssetBundle.name}");
+            return _loadedPrefab;
         }
 
         /// <summary>
@@ -234,6 +231,7 @@ namespace LMUI.Core
                         _logger.LogInfo("Failed to get the TMP component from the main menu options button. Returning null...");
                         return null;
                     }
+
                     TextMeshProUGUI buttonTMP = baseButtonObject.GetComponentInChildren<TextMeshProUGUI>();
                     if (buttonTMP == null)
                     {

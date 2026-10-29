@@ -37,11 +37,8 @@ namespace LMUI.Core
             SetBtnObj();
             SetTrigger();
             // Create a new entry of type PointerEnter
-            _pointerEnter = new EventTrigger.Entry
-            {
-                eventID = EventTriggerType.PointerEnter
-            };
-            // This one line took so long to make it work, I only got it working thanks to (mainly) @the_lenny and @atmudia
+            _pointerEnter = new EventTrigger.Entry { eventID = EventTriggerType.PointerEnter };
+            // It took a long time to get this line working. I got it working (mainly) thanks to @the_lenny and @atmudia
             _pointerEnter.callback.AddListener(new System.Action<BaseEventData>(OnPointerEntered));
             // Add the listener to the trigger
             _trigger.triggers.Add(_pointerEnter);
@@ -61,11 +58,8 @@ namespace LMUI.Core
             SetBtnObj();
             SetTrigger();
             // Create a new entry of type PointerEnter
-            _pointerExit = new EventTrigger.Entry
-            {
-                eventID = EventTriggerType.PointerExit
-            };
-            // This one line took so long to make it work, I only got it working thanks to (mainly) @the_lenny and @atmudia
+            _pointerExit = new EventTrigger.Entry { eventID = EventTriggerType.PointerExit };
+            // It took a long time to get this line working. I got it working (mainly) thanks to @the_lenny and @atmudia
             _pointerExit.callback.AddListener(new System.Action<BaseEventData>(OnPointerExited));
             // Add the listener to the trigger
             _trigger.triggers.Add(_pointerExit);

@@ -94,21 +94,23 @@ namespace LMUI.Core
                 try
                 {
                     // Make sure the directory exists
-                    if (Directory.Exists(assetBundleFolderPath))
+                    if (!Directory.Exists(assetBundleFolderPath))
                     {
-                        _assetBundlePath = Path.Combine(assetBundleFolderPath + assetBundleName);
-                        // Make sure file exists
-                        if (File.Exists(_assetBundlePath))
-                        {
-                            _loadedAssetBundle = AssetBundle.LoadFromFile(_assetBundlePath);
-                        }
-                        else
-                        {
-                            // The file doesn't exist so exit before any functions are run on it
-                            _logger.LogError($"The file at path: {_assetBundlePath} doesn't exist");
-                            _logger.LogInfo("Returning...");
-                            return null;
-                        }
+                        throw new Exception("Directory not found.");
+                    }
+                    
+                    _assetBundlePath = Path.Combine(assetBundleFolderPath + assetBundleName);
+                    // Make sure file exists
+                    if (File.Exists(_assetBundlePath))
+                    {
+                        _loadedAssetBundle = AssetBundle.LoadFromFile(_assetBundlePath);
+                    }
+                    else
+                    {
+                        // The file doesn't exist so exit before any functions are run on it
+                        _logger.LogError($"The file at path: {_assetBundlePath} doesn't exist");
+                        _logger.LogInfo("Returning...");
+                        return null;
                     }
                 }
                 catch (Exception)

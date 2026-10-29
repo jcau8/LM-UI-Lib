@@ -24,7 +24,7 @@ namespace LMUI
             ObjectManager.LayoutManager layoutManager,
             FileHandler.AssetBundleHandler assetBundleHandler,
             FileHandler.AssetBundlesFolder assetBundlesFolder
-            )
+        )
         {
             _objectRefManager = objectReferenceManager;
             _objectManager = objectManager;
@@ -51,7 +51,7 @@ namespace LMUI
                 FileHandler.AssetBundlesFolder assetBundlesFolder = new(logger);
 
                 _instance = new
-                    (
+                (
                     objectRefManager,
                     objectManager,
                     buttonManager,
@@ -59,7 +59,7 @@ namespace LMUI
                     layoutManager,
                     assetBundleHandler,
                     assetBundlesFolder
-                    );
+                );
             }
         }
 

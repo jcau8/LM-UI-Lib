@@ -24,7 +24,7 @@ namespace LMUI.API
             string optionalText = null,
             bool useLayout = false,
             bool useGameMenuStyle = false
-            )
+        )
         {
             Init();
             Instance.RefreshReferences();
@@ -59,7 +59,7 @@ namespace LMUI.API
             Action onClickAction,
             string optionalText = null,
             bool useGameMenuStyle = false
-            )
+        )
         {
             Init();
             Instance.RefreshReferences();
